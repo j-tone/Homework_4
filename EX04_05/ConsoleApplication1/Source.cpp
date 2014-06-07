@@ -20,18 +20,20 @@ int main()
 	for (int i = 0; i < course1.getNumberOfStudents(); i++)
 		cout << students[i] << ", ";
 
-	cout << "\nNumber of students in course2: " << course2.getNumberOfStudents() << endl;
+	cout << "\n\nNumber of students in course2: " << course2.getNumberOfStudents() << endl;
 	students = course2.getStudents();
 	for (int i = 0; i < course2.getNumberOfStudents(); i++)
 		cout << students[i] << ", ";
 
 	course1.dropStudent("Mr T");
 
-	cout << "Number of students in course1: " << course1.getNumberOfStudents() << endl;
+	cout << "\n\nNumber of students in course1: " << course1.getNumberOfStudents() << endl;
 	students = course1.getStudents();
 	for (int i = 0; i < course1.getNumberOfStudents(); i++)
 		cout << students[i] << ", ";
 
+	course1.deep_copy();
+	course1.clear();
 	
 	cout << endl;
 	return 0;

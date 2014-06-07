@@ -54,3 +54,10 @@ string* Course::clear(){
 	string* students = NULL;
 	return students;
 }
+
+void Course::deep_copy(){
+	students_storage = new string[numberOfStudents];
+	for (int i = 0; i < numberOfStudents; i++){
+		students_storage[i] = students[i];
+	}
+}

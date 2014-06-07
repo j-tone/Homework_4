@@ -8,6 +8,7 @@ class Course{
 private:
 	string courseName;
 	string* students;
+	string* students_storage;
 	int numberOfStudents;
 	int capacity;
 
@@ -20,6 +21,7 @@ public:
 	string* getStudents() const;
 	int getNumberOfStudents() const;
 	string* clear();
+	void deep_copy();
 };
 
 #endif
