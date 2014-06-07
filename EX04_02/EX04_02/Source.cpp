@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int* doubleCapacity(int* list, int size);
+int* doubleCapacity(const int* list, int size);
 
 int main()
 {
@@ -10,23 +10,32 @@ int main()
 	cin >> size;
 	int* list = new int[size];
 	for (int* plist = list; plist < list + size; plist++){
-		cout << plist << endl;
+		cout << "Enter a number: ";
+		cin >> *plist;
 	}
 
+	for (int* plist = list; plist < list + size; plist++){
+		cout << *plist << " ";
+	}
 	cout << endl;
 
 	int* newlist = doubleCapacity(list, size);
-	
-	for (int* address = newlist; address < newlist + (size * 2); address++){
-		cout << address << endl;
-	}
-
-	cout << "You now have " << size * 2 << " spaces for integers set aside by the computer." << endl;
 	delete[] list;
+	cout << "Enter more values for the array.\n";
+	for (int i = size; i < size * 2; i++){
+		cout << "Enter a number: ";
+		cin >> newlist[i];
+	}
+	for (int* address = newlist; address < newlist + (size * 2); address++){
+		cout << *address << " ";
+	}
+	cout << endl;
 }
 
-int* doubleCapacity(int* list, int size){
-	int* ptr = list;
-	ptr = new int(size*2);
+int* doubleCapacity(const int* list, int size){
+	int* ptr = new int(size * 2);
+	for (int i = 0; i < size; i++){
+		ptr[i] = list[i];
+	}
 	return ptr;
 }
